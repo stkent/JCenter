@@ -26,9 +26,22 @@ artifacts {
     archives sourcesJar
 }
 
+ext {
+    // command-line deployment
+    bintrayUserParameterName = 'bintrayUser'
+    bintrayKeyParameterName = 'bintrayKey'
+
+    // CI deployment
+    bintrayUserEnvVarName = 'BINTRAY_USER'
+    bintrayKeyEnvVarName = 'BINTRAY_KEY'
+}
+
 bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
+    user = project.hasProperty(bintrayUserParameterName) ?
+            project.property(bintrayUserParameterName) : System.getenv(bintrayUserEnvVarName)
+
+    key = project.hasProperty(bintrayKeyParameterName) ?
+            project.property(bintrayKeyParameterName) : System.getenv(bintrayKeyEnvVarName)
 
     configurations = ['archives']
     pkg {
