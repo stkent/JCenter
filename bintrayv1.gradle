@@ -48,6 +48,11 @@ bintray {
         repo = bintrayRepo
         name = bintrayName
         desc = libraryDescription
+        issueTrackerUrl = libraryIssueTrackerUrl
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        labels = libraryLabels
         publish = true
         publicDownloadNumbers = true
         version {
