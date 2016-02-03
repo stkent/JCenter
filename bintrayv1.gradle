@@ -31,9 +31,11 @@ android.libraryVariants.all { variant ->
 
 }
 
-artifacts {
-    archives generateReleaseJavadocJar
-    archives generateReleaseSourcesJar
+afterEvaluate {
+    artifacts {
+        archives generateReleaseJavadocJar
+        archives generateReleaseSourcesJar
+    }
 }
 
 ext {
