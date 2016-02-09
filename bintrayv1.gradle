@@ -8,6 +8,7 @@ android.libraryVariants.all { variant ->
     def javaDocTaskName = "generate${variantName}Javadoc"
 
     task(javaDocTaskName, type: Javadoc, dependsOn: "assemble${variantName}") {
+        failOnError false
         title = "$name $version API"
         description "Generates Javadoc for $variant.name."
         source = variant.javaCompile.source
