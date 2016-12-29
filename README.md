@@ -1,13 +1,6 @@
 # Usage
 
-In your main `build.gradle` file, add these lines:
-
-```groovy
-apply from: 'bintray.gradle'
-apply from: 'install.gradle'
-```
-
-and define the following extra properties:
+In your main `build.gradle` file, define the following extra properties:
 
 ```groovy
 ext {
@@ -33,6 +26,23 @@ ext {
 
 	// Bintray categorization information:
 	bintrayRepo = 'android-libraries'
+}
+```
+
+Below this, add the following lines:
+
+```groovy
+apply from: 'bintray.gradle'
+apply from: 'install.gradle'
+```
+
+You'll probably also want to set `android.defaultConfig.versionName` to `libraryVersion`:
+
+```groovy
+android {
+  defaultConfig {
+    versionName libraryVersion
+  }
 }
 ```
 
