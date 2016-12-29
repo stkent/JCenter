@@ -1,6 +1,7 @@
-apply plugin: 'com.jfrog.bintray'
+// Tested against v1.6 of the Gradle Bintray Plugin
+// https://github.com/bintray/gradle-bintray-plugin
 
-version = libraryVersion
+apply plugin: 'com.jfrog.bintray'
 
 android.libraryVariants.all { variant ->
 
@@ -56,20 +57,29 @@ bintray {
     key = project.hasProperty(bintrayKeyParameterName) ?
             project.property(bintrayKeyParameterName) : System.getenv(bintrayKeyEnvVarName)
 
+    dryRun = false
+    publish = false
+
     configurations = ['archives']
+
     pkg {
         repo = bintrayRepo
-        name = bintrayName
+        name = libraryName
         desc = libraryDescription
-        issueTrackerUrl = libraryIssueTrackerUrl
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ['Apache-2.0']
+        websiteUrl = libraryWebsiteUrl
+        vcsUrl = "${libraryGitHubUrl}.git"
         labels = libraryLabels
-        publish = true
+        licenses = ['Apache-2.0']
         publicDownloadNumbers = true
+
+        githubRepo = libraryGitHubRepoName
+        //  githubReleaseNotesFile = 'CHANGELOG.md'
+        issueTrackerUrl = libraryIssueTrackerUrl
+
         version {
+            name = libraryVersion
             desc = libraryDescription
+            released = new Date()
         }
     }
 }
