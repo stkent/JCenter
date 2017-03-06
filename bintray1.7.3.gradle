@@ -1,4 +1,4 @@
-// Tested against v1.6 of the Gradle Bintray Plugin
+// Tested against v1.7.3 of the Gradle Bintray Plugin
 // https://github.com/bintray/gradle-bintray-plugin
 
 apply plugin: 'com.jfrog.bintray'
