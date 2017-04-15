@@ -2,7 +2,7 @@
 
 Simplify configuration of the [Bintray](https://github.com/bintray/gradle-bintray-plugin), [Android Maven](https://github.com/dcendents/android-maven-gradle-plugin), and [license](https://github.com/hierynomus/license-gradle-plugin) Gradle plugins for Android library projects.
 
-# Usage
+# Instructions
 
 1. Add the following items to your `build.gradle`'s `buildscript` block:
 
@@ -19,7 +19,7 @@ Simplify configuration of the [Bintray](https://github.com/bintray/gradle-bintra
 	}
 	```
 	
-2. Apply the license plugin (no additional configuration needed):
+2. Add a license file named `HEADER_LICENSE.txt` to your project directory, then apply the license plugin (no additional configuration needed):
 
 	```groovy
 	plugins {
