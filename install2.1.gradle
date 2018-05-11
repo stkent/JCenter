@@ -1,4 +1,4 @@
-// Tested against v1.5 of the Gradle Android Maven Plugin
+// Tested against v2.1 of the Gradle Android Maven Plugin
 // https://github.com/dcendents/android-maven-gradle-plugin
 
 apply plugin: 'com.github.dcendents.android-maven'
